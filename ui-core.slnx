@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/ui/">
+		<Project Path="src/Amiasea.Enterprise.Ui.Core/Amiasea.Enterprise.Ui.Core.csproj" />
+	</Folder>
+</Solution>
