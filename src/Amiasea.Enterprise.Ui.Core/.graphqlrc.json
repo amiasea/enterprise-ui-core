@@ -1,0 +1,10 @@
+{
+  "schema": "Schemas/Core.graphql",
+  "documents": "**/*.graphql",
+  "extensions": {
+    "strawberryShake": {
+      "name": "CoreClient",
+      "namespace": "Amiasea.Enterprise.UI.Core.GraphQL"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@using Amiasea.Enterprise.UI.Core.GraphQL
+@inject ICoreClient Client
+
+@if (_cart is null)
+{
+    <p>Loading cart items...</p>
+}
+else if (_cart.Items.Count == 0)
+{
+    <p>This cart is empty.</p>
+}
+else
+{
+    <ul>
+        @foreach (var item in _cart.Items)
+        {
+            <li>
+                @item.Product.Name
+                — Quantity: @item.Quantity
+                — Price: @item.Product.Price.ToString("C")
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    [Parameter]
+    public Guid CartId { get; set; }
+
+    private IGetCartById_CartById? _cart;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        var result = await Client.GetCartById.ExecuteAsync(CartId);
+        _cart = result.Data?.CartById;
+    }
+}

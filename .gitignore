@@ -42,3 +42,5 @@ Thumbs.db
 
 # Client-side libraries
 **/wwwroot/lib/
+
+**/Schemas

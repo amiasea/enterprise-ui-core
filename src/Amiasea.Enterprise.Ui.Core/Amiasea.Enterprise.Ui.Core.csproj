@@ -6,13 +6,25 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-
   <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="11.0.0-rc.1.26425.128" />
+    <PackageReference Include="Amiasea.Enterprise.GraphQL.Schemas" Version="1.0.3" GeneratePathProperty="true" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="11.0.0-rc.1.26425.128" />
+    <PackageReference Include="StrawberryShake.Blazor" Version="16.6.8" />
+  </ItemGroup>
+
+  <Target Name="CopyGraphQLSchema"
+        BeforeTargets="GenerateGraphQLCode">
+    <Copy
+      SourceFiles="$(PkgAmiasea_Enterprise_GraphQL_Schemas)\Schemas\Schemas\Core.graphql"
+      DestinationFiles="$(MSBuildProjectDirectory)\Schemas\Core.graphql"
+      SkipUnchangedFiles="true" />
+  </Target>
 
 </Project>

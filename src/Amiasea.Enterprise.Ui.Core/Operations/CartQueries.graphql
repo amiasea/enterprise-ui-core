@@ -1,0 +1,13 @@
+query GetCartById($id: UUID!) {
+  cartById(id: $id) {
+    id
+    items {
+      quantity
+      product {
+        id
+        name
+        price
+      }
+    }
+  }
+}
